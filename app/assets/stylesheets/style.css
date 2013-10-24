@@ -1,11 +1,21 @@
 html {
-  background: #333333 no-repeat center center fixed;
+  background: grey no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  color:white;
 }
 
+body {
+      font: 14px/21px 'Gruppo', cursive;
+}
+
+ul li{
+  font-size: 21px;
+          text-decoration: none;
+
+}
 .nav-head {
   position: relative;
   padding-bottom: 20px
@@ -34,3 +44,11 @@ html {
 .nav-head:visited {text-decoration: none;}
 .graff-head:link {text-decoration: none; color: white}
 .graff-head:visited {text-decoration: none;}
+
+img {max-width: none !important; vertical-align: baseline !important;}
+div, img {box-sizing:content-box;}
+
+#gmap {
+  width: 100%;
+  color: grey;
+}

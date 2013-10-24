@@ -1,13 +1,7 @@
 
 <ul>
-  <li>
     <h1><%= @piece.artist.name %> - "<%= @piece.name %>"<h1>
-    </li>
-    <li>
       last seen <%= time_ago_in_words(@piece.updated_at) %> - <%= @piece.location %>
-
-    </li>
-    <li>
       <div class="piece-edit">
         <% if current_user %>
         <%= link_to "Edit details..", edit_piece_path  %>
@@ -15,11 +9,8 @@
         <br><%= link_to "log in to comment, edit or add favorite", "/login" %>
         <% end %>
       </div>
-    </li>
     <% @piece.pics.each do |pic| %>
-    <li>
       <%= image_tag pic.url, :size => "800X600"  %>
-    </li>
     <% end %>
     <div class="piece-favorite">
      <% if current_user && Favorite.where(:user_id => current_user[:id], :piece_id => @piece.id) == [] %>
@@ -40,9 +31,13 @@
     <!--TODO if session[:id] -->
     <% if current_user %>
     <%= form_for [@piece, @comment] do |f| %>
-    <%= f.text_area :entry, size: "400x10" %>
+    <%= f.text_area :entry, size: "40x10" %>
     <%= f.submit "Submit Comment" %>
     <% end %>
     <% end %>
   </div>
-</ul>
+
+  <div id="gmap">
+    <%= gmaps4rails(@gmaps_json) %>
+  </div>
+

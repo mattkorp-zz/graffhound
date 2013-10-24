@@ -7,3 +7,6 @@
   <% @artist.pieces.each do |piece| %>
   <li><%= link_to piece.name, piece %></li>
   <% end %>
+<div id="gmap">
+  <%= gmaps4rails(@json) %>
+</div>

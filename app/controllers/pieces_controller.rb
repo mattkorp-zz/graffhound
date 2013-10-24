@@ -28,7 +28,15 @@ class PiecesController < ApplicationController
     @piece = Piece.find(params[:id])
     @comment = Comment.new
     @favorite = Favorite.new
+    location = Array.new
+    location << {
+      'description' => @piece.location,
+      'lng' => @piece.longitude,
+      'lat' => @piece.latitude
+    }
+    @gmaps_json = location.to_json
   end
+
   def edit
     @piece = Piece.find(params[:id])
     @artists = Artist.all

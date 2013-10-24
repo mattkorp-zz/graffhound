@@ -5,8 +5,10 @@
 #  id         :integer          not null, primary key
 #  name       :string(255)
 #  birth      :date
+#  location   :string(255)
+#  latitude   :float
+#  longitude  :float
 #  alive      :boolean          default(TRUE)
-#  url        :text             default("--- []\n")
 #  artist_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -16,7 +18,7 @@
 class Piece < ActiveRecord::Base
   attr_accessible :name, :birth, :alive, :url, :location
 
-  #acts_as_gmappable, :process_geocoding => false
+  acts_as_gmappable :process_geocoding => false
 
   def gmaps4rails_address
    self.location
