@@ -1,5 +1,5 @@
 html {
-  background: grey no-repeat center center fixed;
+  background: #212121 no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -8,13 +8,44 @@ html {
 }
 
 body {
-      font: 14px/21px 'Gruppo', cursive;
+  font: 14px/21px 'Gruppo', cursive;
 }
+input {
+  height: 30px;
+  width: 100px;
+    margin: 10px;
 
+  border-style: none;
+  font: 14px/21px 'Gruppo', cursive;
+}
+input[type=submit]{
+  width: 80px;
+  margin: 10px;
+  background-color: #ffefdb;
+  border-style: none;
+}
 ul li{
   font-size: 21px;
-          text-decoration: none;
+  list-style: none;
 
+}
+
+ul.artist-list {
+
+}
+
+.nav-head{
+  position: relative;
+  top: -50px;
+  text-align: right;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+a:hover{
+  text-decoration:underline;
 }
 .nav-head {
   position: relative;
@@ -26,7 +57,8 @@ ul li{
   padding: 0 10px;
 }
 .container {
-  width: 90%  background-repeat: no-repeat;
+  width: 90%;
+  background-repeat: no-repeat;
   position: relative;
   margin: 0 auto;
 
@@ -39,7 +71,7 @@ ul li{
   font-family: 'Syncopate', sans-serif;
   text-decoration: none;
 }
-.nav-head { float:right}
+.nav-head {float:right}
 .nav-head:link {text-decoration: none;}
 .nav-head:visited {text-decoration: none;}
 .graff-head:link {text-decoration: none; color: white}
