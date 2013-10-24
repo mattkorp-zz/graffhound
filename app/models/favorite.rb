@@ -10,7 +10,7 @@
 #
 
 class Favorite < ActiveRecord::Base
-
+  attr_accessible :piece_id, :user_id
   belongs_to :piece
   belongs_to :user
 end

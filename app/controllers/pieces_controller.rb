@@ -27,9 +27,11 @@ class PiecesController < ApplicationController
   def show
     @piece = Piece.find(params[:id])
     @comment = Comment.new
+    @favorite = Favorite.new
   end
   def edit
     @piece = Piece.find(params[:id])
+    @artists = Artist.all
   end
   def update
     raise

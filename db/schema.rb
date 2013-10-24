@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131022020320) do
+ActiveRecord::Schema.define(:version => 20131023213354) do
 
   create_table "artists", :force => true do |t|
     t.text     "bio"
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(:version => 20131022020320) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "pics", :force => true do |t|
+    t.string   "url"
+    t.integer  "piece_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "pieces", :force => true do |t|
     t.string   "name"
     t.date     "birth"
@@ -42,10 +49,9 @@ ActiveRecord::Schema.define(:version => 20131022020320) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "alive",      :default => true
-    t.text     "url",        :default => "--- []\n"
     t.integer  "artist_id"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "users", :force => true do |t|

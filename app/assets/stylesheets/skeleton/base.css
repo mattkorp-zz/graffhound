@@ -55,11 +55,11 @@
 ================================================== */
 	body {
 		background: #fff;
-		font: 16px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font: 20px/21px 'Gruppo', cursive;
 		color: #fff;
 		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 		-webkit-text-size-adjust: 100%;
-		background: url('bw_bg.jpg') no-repeat center center fixed;
+		background: #333333 no-repeat center center fixed;
   	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -291,15 +291,9 @@
 }
 .graff-head {
   font-family: 'Syncopate', sans-serif;
-/*font-family: 'Michroma', sans-serif;
-*/
-text-decoration: none;
+	text-decoration: none;
 }
-.session-div {
-/*	height 300px;
-	width 300px
-	background-color: slate grey;*/
-}
+.nav-head { float:right}
 .nav-head:link {text-decoration: none;}
 .nav-head:visited {text-decoration: none;}
 .graff-head:link {text-decoration: none; color: white}

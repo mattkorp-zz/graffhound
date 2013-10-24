@@ -8,7 +8,6 @@ class LocationController < ApplicationController
     end
   end
 
-
   def show
 
   end

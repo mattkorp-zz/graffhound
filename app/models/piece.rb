@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: pieces
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  birth      :date
+#  alive      :boolean          default(TRUE)
+#  url        :text             default("--- []\n")
+#  artist_id  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 
 
 class Piece < ActiveRecord::Base
@@ -12,6 +25,8 @@ class Piece < ActiveRecord::Base
  geocoded_by :location
  after_validation :geocode, :if => :location_changed?
  belongs_to :artist
+ has_many :pics
+ has_many :favorites
  has_many :users, :through => :comments
  has_many :users, :through => :favorites
 end

@@ -10,23 +10,54 @@ Piece.delete_all
 User.delete_all
 Favorite.delete_all
 Comment.delete_all
+Pic.delete_all
 
-a1 = Artist.create(:name => "sambi", :bio => "A real cooool guy")
-a2 = Artist.create(:name => "lemme", :bio => "A real superr guy")
+a1 = Artist.create(:name => "Banksy", :bio => "Banksy is a pseudonymous United Kingdom-based graffiti artist, political activist, film director, and painter.
+His satirical street art and subversive epigrams combine dark humour with graffiti done in a distinctive stencilling technique. Such artistic works of political and social commentary have been featured on streets, walls, and bridges of cities throughout the world")
 
-p1 = Piece.create(:name => "yes",:birth => "1/2/2012", :location => "30 Stanton, New York, NY 10012", :url => "http://onebigphoto.com/uploads/2011/10/graffiti-street.jpg")
-p2 = Piece.create(:name => "maybe",:birth => "1/2/2012", :location => "90 Elizabeth, New York, NY 10012", :url => "http://komplexgraphix.com/wp-content/uploads/2012/05/sirum_graffiti-wall-art_50.jpg")
-p3 = Piece.create(:name => "sometimes",:birth => "1/2/2012", :location => "70 Bowery, New York, NY 10012", :url => "http://images3.alphacoders.com/180/180455.jpg")
-p4 = Piece.create(:name => "nope" ,:birth => "5/2/2012", :location => "20 Prince, New York, NY 10012", :url => "http://images2.alphacoders.com/564/56492.jpg")
+p1 = Piece.create(:name => "You Complete Me..",:birth => "10/3/2013", :location => "24th st & 6th ave, New York, NY")
+z1 = Pic.create(:url => "http://4.bp.blogspot.com/-Utd2sTXzuBs/Uk1xpz1O3NI/AAAAAAAAE4Y/XAByLWkCdns/s640/banksyny-558564037259684952_564287810.jpeg")
+z2 = Pic.create(:url => "http://2.bp.blogspot.com/-2wmLQhDkSRA/Uk1uKWZRstI/AAAAAAAAE4M/FFasqzz7N4A/s640/streetartnews_banksy_new_york_city-23.jpg")
+
+
+p2 = Piece.create(:name => "Ghetto 4 Life",:birth => "10/22/2013", :location => "153rd st and elton, bronx, ny")
+z3 = Pic.create(:url => "http://4.bp.blogspot.com/-pFLZzknb0q4/UmU5M3r6FyI/AAAAAAAAF8Y/Z9k9HhXoXhg/s640/SIZED.Mon-21-WIDE-private.jpg")
+z4 = Pic.create(:url => "http://4.bp.blogspot.com/-fBQWuviJ5yo/UmU5Mj8SpSI/AAAAAAAAF8c/0okj2iguyBA/s640/sized-mon-21-tight-private.jpg")
+
+
+
+a2 = Artist.create(:name => "Swoon", :bio => "Swoon is a street artist born in New London, Connecticut, and raised in Daytona Beach, Florida. She moved to New York City at age nineteen, and specializes in life-size wheatpaste prints and paper cutouts of figures. Swoon, real name Caledonia Dance Curry, studied painting at the Pratt institute in Brooklyn and started doing street art around 1999.")
+p3 = Piece.create(:name => "streets",:birth => "10/24/2013", :location => "Bowery & Houston, New York, NY 10012")
+z5 = Pic.create(:url => "http://gothamist.com/attachments/arts_jen/BOWERYMURALNEW0613.jpeg")
+
+
+
+# p4 = Piece.create(:name => "nope" ,:birth => "5/2/2012", :location => "20 Prince, New York, NY 10012")
+# z6 = Pic.create(:url => "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSJN5D2opMOMZvtJSi0v-Zmf6ofnAxKAj_mimagRZOsi3FBgrnngQ")
+
+
+z1.piece = p1
+z2.piece = p1
+
+z3.piece = p2
+z4.piece = p2
+
+z5.piece = p3
+
+z1.save
+z2.save
+z3.save
+z4.save
+z5.save
 
 p1.artist = a1
 p2.artist = a1
 p3.artist = a2
-p4.artist = a2
+
 p1.save
 p2.save
 p3.save
-p4.save
+
 
 u1 = User.create(:username => "matt", :email => "matt@hew.com", :password => "password1", :password_confirmation => "password1")
 u2 = User.create(:username => "mark", :email => "mark@hew.com", :password => "password2", :password_confirmation => "password2")
@@ -50,15 +81,15 @@ f3.user = u4
 f3.piece = p1
 f3.save
 f4.user = u1
-f4.piece = p1
+f4.piece = p2
 f4.save
 f5.user = u3
 f5.piece = p3
 f5.save
 
-c1 = Comment.create(:entry => "I really like this stuff")
-c2 = Comment.create(:entry => "the best evarrrr")
-c3 = Comment.create(:entry => "show me more")
+c1 = Comment.create(:entry => "unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum p")
+c2 = Comment.create(:entry => "Ipsum is that it has a more-or-less normal distribution of letters, as opposed to u")
+c3 = Comment.create(:entry => "consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the u0.32 and 1.10.33")
 c4 = Comment.create(:entry => "not bad...")
 
 c1.user = u1
@@ -66,7 +97,7 @@ c1.piece = p1
 c1.save
 
 c2.user = u1
-c2.piece = p4
+c2.piece = p2
 c2.save
 
 c3.user = u2
