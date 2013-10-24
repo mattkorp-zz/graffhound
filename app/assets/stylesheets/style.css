@@ -4,7 +4,7 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  color:white;
+  color:#7F7F7F;
 }
 
 body {
@@ -42,7 +42,7 @@ ul.artist-list {
 
 a{
   text-decoration: none;
-  color: white;
+  color: #67C7E2;
 }
 a:hover{
   text-decoration:underline;
@@ -79,8 +79,7 @@ a:hover{
 
 img {max-width: none !important; vertical-align: baseline !important;}
 div, img {box-sizing:content-box;}
-
 #gmap {
   width: 100%;
-  color: slate grey;
+  background-color: slate grey;
 }
