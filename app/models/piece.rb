@@ -22,14 +22,27 @@ class Piece < ActiveRecord::Base
 
   def gmaps4rails_address
    self.location
-  end
+ end
 
- geocoded_by :location
- after_validation :geocode, :if => :location_changed?
- belongs_to :artist
- has_many :pics
- has_many :favorites
- has_many :comments
- has_many :commenters, :through => :comments
- has_many :users, :through => :favorites
+# def gmaps4rails_marker_picture
+#   {
+#    "picture" => "/images/s2.jpeg",
+#    "width" => 20,
+#    "height" => 20,
+#    "marker_anchor" => [ 5, 10],
+#    "shadow_picture" => "/images/s2.jpeg" ,
+#    "shadow_width" => "110",
+#    "shadow_height" => "110",
+#    "shadow_anchor" => [5, 10],
+#   }
+# end
+
+geocoded_by :location
+after_validation :geocode, :if => :location_changed?
+belongs_to :artist
+has_many :pics
+has_many :favorites
+has_many :comments
+has_many :commenters, :through => :comments
+has_many :users, :through => :favorites
 end
