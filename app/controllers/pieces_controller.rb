@@ -26,8 +26,9 @@ class PiecesController < ApplicationController
     @pic = Pic.new
     @pic.url = params[:URL]
     @pic.piece = @piece
+    @pic.save
 
-    redirect @piece
+    redirect_to @piece
   end
 
   def show
