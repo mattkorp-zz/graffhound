@@ -10,19 +10,24 @@ class PiecesController < ApplicationController
   end
 
   def create
-    @piece = Piece.new(params[:piece])
-    artist_name = params[:piece][:artist]
-    if Artist.where(:name => artist_name) == []
-      #artist not in db, add
-      artist = Artist.new
-      artist.name = artist_name
-          artist.save
+    @piece = Piece.new
+    @piece.name = params[:piece][:name]
+    @piece.location = params[:piece][:location]
+    if params[:artist_name].empty?
+      artist_id = params[:piece][:artist_id]
+      artist = Artist.where(:id => artist_id).first
     else
-      artist = Artist.where(:name => artist_name).first
+      artist = Artist.new
+      artist.name = params[:artist_name]
+      artist.save
     end
     @piece.artist = artist
     @piece.save
-    redirect_to @piece
+    @pic = Pic.new
+    @pic.url = params[:URL]
+    @pic.piece = @piece
+
+    redirect @piece
   end
 
   def show

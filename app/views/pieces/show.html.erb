@@ -1,17 +1,19 @@
 
 <ul>
-    <h1><%= @piece.artist.name %> - "<%= @piece.name %>"<h1>
-      last seen <%= time_ago_in_words(@piece.updated_at) %> - <%= @piece.location %>
-      <div class="piece-edit">
+    <h2><%= @piece.artist.name %> - "<%= @piece.name %>"<h2>
+      <h3>last seen <%= time_ago_in_words(@piece.updated_at) %> - <%= @piece.location %></h3>
+      <div id="pc-edit" class="piece-edit">
         <% if current_user %>
         <%= link_to "Edit details..", edit_piece_path  %>
         <% else %>
         <br><%= link_to "log in to comment, edit or add favorite", "/login" %>
         <% end %>
       </div>
+    <div class="show-pics">
     <% @piece.pics.each do |pic| %>
       <%= image_tag pic.url, :size => "800X600"  %>
     <% end %>
+  </div>
     <div class="piece-favorite">
      <% if current_user && Favorite.where(:user_id => current_user[:id], :piece_id => @piece.id) == [] %>
      <%= form_for [@piece, @favorite] do |f| %>
@@ -20,13 +22,16 @@
      <% end %>
    </div>
 
-   <div class="comments: ">
-    <p>comments</p>
+   <div class="comments ">
+    <p><u>comments:</u></p>
+    <div class="piece-comments">
     <% comments = Comment.where(:piece_id => @piece.id) %>
     <% comments.each do |comment| %>
-    <%= comment.entry %> -
-    <%= comment.user.username %> -
-    <%= time_ago_in_words(comment.updated_at) %><br>
+    <%= comment.entry %>
+    <div class="comment-info"> -
+      <%= comment.user.username %> -
+      <%= time_ago_in_words(comment.updated_at) %>
+    </div><br>
     <% end %>
     <!--TODO if session[:id] -->
     <% if current_user %>
@@ -35,6 +40,7 @@
     <%= f.submit "comment" %>
     <% end %>
     <% end %>
+  </div>
   </div>
 
   <div id="gmap">
