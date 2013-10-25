@@ -1,7 +1,7 @@
-class LocationController < ApplicationController
+class LocationsController < ApplicationController
   def index
     location = Array.new
-    @location = Location.create(:location => "Flatiron, NY")
+    @location = Location.new
     @pieces = Piece.all
     @json = @pieces.each.to_gmaps4rails do |piece, marker|
       location_link = view_context.link_to "#{piece.artist.name} - #{piece.name}", piece_path(piece)

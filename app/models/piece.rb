@@ -29,6 +29,7 @@ class Piece < ActiveRecord::Base
  belongs_to :artist
  has_many :pics
  has_many :favorites
- has_many :users, :through => :comments
+ has_many :comments
+ has_many :commenters, :through => :comments
  has_many :users, :through => :favorites
 end

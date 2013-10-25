@@ -1,8 +1,9 @@
 GraffhoundApp::Application.routes.draw do
-  resources :users, :artists, :location
+  resources :users, :artists, :locations
   resources :welcome, only: [:new]
   resources :sessions, only: [:new, :create, :destroy]
   resources :pieces do
+
     resources :comments, :favorites, :only => [:create]
   end
 
@@ -11,4 +12,5 @@ GraffhoundApp::Application.routes.draw do
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   get '/logout' => 'session#destroy'
+  get 'pieces/search' => 'locations#new'
 end

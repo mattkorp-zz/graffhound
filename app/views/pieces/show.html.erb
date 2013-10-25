@@ -32,7 +32,7 @@
     <% if current_user %>
     <%= form_for [@piece, @comment] do |f| %>
     <%= f.text_area :entry, size: "40x10" %>
-    <%= f.submit "Submit Comment" %>
+    <%= f.submit "comment" %>
     <% end %>
     <% end %>
   </div>

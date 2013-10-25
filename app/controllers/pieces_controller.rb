@@ -5,6 +5,7 @@ class PiecesController < ApplicationController
 
   def new
     @piece = Piece.new
+    @pic = Pic.new
     @artists = Artist.all
   end
 
